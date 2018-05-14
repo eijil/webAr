@@ -44,8 +44,10 @@ class Main {
         this.checkCamera();
         this.bindEvent();
 
-        this.resizeCallback = this.onResize.bind(this);
-        window.addEventListener('resize', this.resizeCallback, false);
+        if(this.isAndroid){
+          this.resizeCallback = this.onResize.bind(this);
+          window.addEventListener('resize', this.resizeCallback, false);
+        }
     }
 
     onPlaying(){
