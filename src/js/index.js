@@ -148,6 +148,8 @@ class Main {
         this.moreButton.on('click', function () {
             _this.videoPanel.hide();
             _this.introPanel.show();
+            //个人介绍页页面支持滚动
+            $("html").addClass("introPage");
             _this.app.getVideo().hide();
             _this.myvideo[0].pause();
         })
@@ -157,6 +159,8 @@ class Main {
             if(_this.supportVideo) {
                 _this.videoPanel.hide();
                 _this.introPanel.hide();
+                //删除页面滚动
+                $("html").removeClass("introPage");
                 _this.scanPanel.show();
             }
             else{
@@ -186,10 +190,12 @@ class Main {
     }
 
     scan() {
+
         // this.threeContainer.show();
         this.moreButton.show();
         this.scanPanel.hide();
         this.videoPanel.show();
+        $("html").removeClass('introPage');
         this.myvideo[0].removeEventListener("playing", this.onVideoPlaying);
         this.myvideo[0].play();
         this.videoPanel.css("background", "none");

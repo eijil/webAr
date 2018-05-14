@@ -4,6 +4,15 @@
 html,body{
 	overflow: hidden;
 	height: 100%;
+	background: #000;
+}
+html.introPage{
+	overflow:auto;
+	overflow-x: hidden;
+	body{
+		overflow:auto;
+		overflow-x: hidden;
+	}
 }
 
 // three scene z-index 0
@@ -48,6 +57,7 @@ html,body{
 }
 #video{
 	margin: 0 auto;
+	position: fixed;
 }
 .bgbg{
 	background: url(../img/mainbg1.png) no-repeat center;
@@ -117,11 +127,11 @@ html,body{
 .scan-panel{
 	width: 100%;
 	height: 100%;
-	position: absolute;
+	position: fixed;
 	top: 0;
 	left: 0;
 	display: none;
-
+	z-index: 10;
 	.scan-boder{
 		background: url(../img/scan.gif) no-repeat;
 		background-size: 100% 100%;
@@ -169,10 +179,9 @@ html,body{
 .video-panel{
 	width: 100%;
 	height: 100%;
-	position: absolute;
+	position: fixed;
 	top: 0;
 	left: 0;
-	background: rgba(0,0,0,.7);
 	display: none;
 	z-index: 11;
 
@@ -188,41 +197,58 @@ html,body{
 		z-index: 1;
 	}
 }
-.intro{
+.intromask{
+	position: fixed;
 	background: rgba(0,0,0,.7);
+	width: 100%;
+	height: 100%;
+	display: none;
+}
+.f-rbutton{
+	background: url(../img/pagebutton.png) no-repeat;
+	background-size: contain;
+	width: rem(128);
+	height: rem(491);
+	position: fixed;
+	right: rem(30);
+	top: rem(40);
+	display: none;
+	z-index: 20;
+	a{
+		display: block;
+		width: rem(81);
+		height: rem(224);
+	}
+}
+.introPage{
+	.intromask{
+		display: block;
+	}
+	.f-rbutton{
+		display: block;
+	}
+}
+.intro{
+
 	position: absolute;
 	z-index: 10;
 	top: 0;
 	left: 0;
 	width: 100%;
 	height: 100%;
-	overflow-x:hidden;
 	display: none;
+
 	.content{
 		width: rem(505);
 		margin-left: rem(44);
 		margin-top:rem(70);
-		overflow: hidden;
 		img{
 			width: 100%;
 		}
 
 
 	}
-	.f-rbutton{
-		background: url(../img/pagebutton.png) no-repeat;
-		background-size: contain;
-		width: rem(128);
-		height: rem(491);
-		position: fixed;
-		right: rem(30);
-		top: rem(40);
-		a{
-			display: block;
-			width: rem(81);
-			height: rem(224);
-		}
-	}
+
 }
 .progress{
 	width: rem(585);
@@ -250,4 +276,3 @@ html,body{
 	width: rem(110);
 	height: rem(29);
 }
-
